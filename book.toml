@@ -1,0 +1,27 @@
+[book]
+authors = ["Braxton Cuneo"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Game Development"
+
+[preprocessor.slider_filt]
+command = "python3 ./src/slider_filt.py"
+before = [ "admonish", "footnote", "cmdrun", "hide", "links" ]
+
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "2.0.2" # do not edit: managed by `mdbook-admonish install`
+
+[output.html]
+additional-css = ["./mdbook-admonish.css"]
+
+
+[preprocessor.footnote]
+
+[preprocessor.cmdrun]
+
+[preprocessor.hide]
+hide = true
+
