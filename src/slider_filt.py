@@ -44,8 +44,23 @@ def slide_script(slide_count):
 def process_slide(content,slide_number):
     result  = f"<div id=\"slide_{slide_number}\" style=\"display: none;\"> "
     result += slide_start.format(cell_attr="style=\"flex: 1;\"")
+    base_header_level = None
+
     for line in content.splitlines():
         line = re.sub(r"{{footnote:[^}]*(}[^}]+)*}}","",line)
+
+        header = r"^[ \t]*(?P<hashes>#+)(?P<rest>[^#].*)$$"
+        header_match = re.match(header,line)
+        if header_match != None:
+            hashes = header_match.group('hashes')
+            rest = header_match.group('rest')
+            if base_header_level == None:
+                base_header_level = len(hashes)
+            header_level = len(hashes)
+            hash_count = header_level-base_header_level+1
+            result += ("#" * hash_count)+rest+'\n'
+            continue
+
         directive = r"^[ \t]*<!--[ \t]*slider[ \t]*(?P<dir>[\w-]+)[ \t]*(?P<arg>[\w.-]+)?[ \t]*-->[ \t]*$"
         match = re.match(directive,line)
         if match == None:
@@ -112,7 +127,7 @@ script_path = None
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        if sys.argv[1] == "supports": 
+        if sys.argv[1] == "supports":
             sys.exit(0)
 
     context, book = json.load(sys.stdin)

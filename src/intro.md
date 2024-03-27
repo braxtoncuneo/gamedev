@@ -28,7 +28,7 @@ This includes:
 Interactive experiences can involve any behavior the creator can imagine and implement.
 Unsurprisingly, this set of behaviors is very, *very*, ***very*** large, and includes the simulation of behaviors that even experts struggle to model/understand.
 Which set of behaviors is best to evoke the desired response from users also introduces the complex world of media studies.
-Quite reasonably, this cannot be covered in an 11-week class, so we'll be focusing on a curated selection of fundamental concepts, common use cases, and pertinent examples.
+Quite reasonably, this cannot be covered in an 11-week class, so we'll be focusing on a software-focused selection of fundamental concepts, common use cases, and pertinent examples.
 
 Ideally, by the end of this book, we'll have a solid foundation which you can build upon through practice and self-education.
 
